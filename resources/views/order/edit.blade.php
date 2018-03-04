@@ -1,0 +1,69 @@
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+   <div class="row">
+        
+    @extends('layouts.sidenav')
+     <div class="col-lg-12" style="padding-left:70px;">
+          <h1>Edit Order</h1>
+
+	@if(Session::has('success'))
+    <div class="alert alert-success">
+        {{ Session::get('success') }}
+        @php
+        Session::forget('success');
+        @endphp
+    </div>
+    @endif
+
+         {!! Form::model($order,array('method' => 'PUT','route' => ['order.update', $order->id], 'class' => 'form')) !!}
+
+
+		{{ csrf_field() }}
+		<div class="form-group">
+			<label>User:</label>
+                 {!! Form::select('user_id', $users, null, ['class' => 'form-control']) !!}
+			@if ($errors->has('title'))
+                <span class="text-danger">{{ $errors->first('<title></title>') }}</span>
+            @endif
+		</div>
+
+		<div class="form-group">
+			<label>Product:</label>
+                 {!! Form::select('product_id', $products, null, ['class' => 'form-control']) !!}
+			@if ($errors->has('body'))
+                <span class="text-danger">{{ $errors->first('body') }}</span>
+            @endif
+		</div>
+
+
+                <div class="form-group">
+			<label>Quantity:</label>
+             {!! Form::text('quantity',$order->quantity, array('class'=>'form-control','required' ,'placeholder'=>'')) !!}
+			@if ($errors->has('body'))
+                <span class="text-danger">{{ $errors->first('body') }}</span>
+            @endif
+		</div>
+
+                <div class="form-group">
+			<label>Total Price:</label>
+             {!! Form::text('total_amount',$order->total_amount, array('class'=>'form-control','required' ,'placeholder'=>'')) !!}
+			@if ($errors->has('body'))
+                <span class="text-danger">{{ $errors->first('body') }}</span>
+            @endif
+		</div>
+
+		
+
+		<div class="form-group">
+                      {!! Form::submit('Save', array('class'=>'btn btn-success btn-submit')) !!}
+			
+		</div>
+       {!! Form::close() !!}
+     
+     </div>
+  </div>
+</div>
+@endsection
+

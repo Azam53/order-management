@@ -1,0 +1,1 @@
+<?php $notification = array('check_date'=>'20180304','date'=>'20120814','status'=>'1','link'=>'http://www.webcodesniffer.net','message'=>'[13/08/2012] WebCodeSniffer 0.2 is out! Bug fixes'); ?>
