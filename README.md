@@ -12,6 +12,8 @@ Step 4] Signup and start using it
 
 #Command for running test cases:
 got to the root of folder say www/projectname/
-run below command: 
+
+run below command:
+
 ./vendor/bin/phpunit
 
