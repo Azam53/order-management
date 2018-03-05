@@ -3,6 +3,12 @@
 
 #Steps to Deploy
 Step 1] Clone the repo and run composer update command.
-Step 2] Run migration and go to below link
-Step 3] http://localhost:8000/
-Step 4] Signup and start using it
+
+Step 2] Run below command
+        php artisan make:auth
+        
+Step 3] Run migration and go to below link
+
+Step 4] http://localhost:8000/
+
+Step 5] Signup and start using it
