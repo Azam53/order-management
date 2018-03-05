@@ -15,8 +15,8 @@ class SearchController extends Controller
 
     public function index(Request $request){
 		 
-        $products = Product::lists('p_name', 'id');
-    	$users    = User::lists('name','id');
+        $products = Product::pluck('p_name', 'id');
+    	$users    = User::pluck('name','id');
         $orders   = Order::join('product', 'product.id', '=', 'order.product_id')
                          ->join('users', 'users.id', '=', 'order.user_id');
         if(!empty($request->search_term)){
