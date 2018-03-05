@@ -49,7 +49,7 @@ class OrderController extends Controller
         $total_price = $request->quantity * $product_price->price;
 
          // Applying special discount of 20% on total price
-        if($request->product_id == 4 && $request->quantity >= 3 ){
+        if($request->product_id == 1 && $request->quantity >= 3 ){
            $total_price = $total_price - ($total_price * 0.2);
         }
         
