@@ -47,9 +47,11 @@ class OrderController extends Controller
          // calculate total price for order created....
         $product_price = Product::find($request->product_id);
         $total_price = $request->quantity * $product_price->price;
+	    
+	 $discount_id = Product::where('p_name','Pepsi Cola')->get();    
 
          // Applying special discount of 20% on total price
-        if($request->product_id == 1 && $request->quantity >= 3 ){
+        if($request->product_id == $discount_id[0]->id && $request->quantity >= 3 ){
            $total_price = $total_price - ($total_price * 0.2);
         }
         
